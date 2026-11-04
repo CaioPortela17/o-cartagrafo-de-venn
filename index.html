@@ -581,8 +581,8 @@ function Phase2(){
     'Mas a próxima região está coberta de neblina. Lá você não vai poder confiar nos olhos, só no que sabe sobre as regiões do diagrama.'
   ];
   let b,rows=[],rocks=[],whirls=[],spawned=0,speed,freeze=0,cur=null,nextIn=null,endIn=null,types;const total=7;
-  P.init=()=>{b=Boat(LW/2,LH-70);b.ang=-Math.PI/2;speed=LH/6.3;types=shuffle([0,0,1,1,2,3,3]);spawnRow();};
-  function spawnRow(){const q=genQ2(types[spawned%types.length]);const vals=mkOpts(q.ans,q.ds,3);rows.push({y:-40-LH*.38,vals,correct:vals.indexOf(q.ans),q,res:false,pick:-1});cur=rows[rows.length-1];spawned++;
+  P.init=()=>{b=Boat(LW/2,LH-70);b.ang=-Math.PI/2;speed=LH/9.5;types=shuffle([0,0,1,1,2,3,3]);spawnRow();};
+  function spawnRow(){const q=genQ2(types[spawned%types.length]);const vals=mkOpts(q.ans,q.ds,3);rows.push({y:-40-LH*.75,vals,correct:vals.indexOf(q.ans),q,res:false,pick:-1});cur=rows[rows.length-1];spawned++;
     const pat=P2_PATTERNS[(spawned-1)%P2_PATTERNS.length];pat.rocks.forEach(([fx,fy])=>rocks.push(makeRock(fx*LW,-30-fy*LH,17)));if(pat.whirl)whirls.push({x:pat.whirl[0]*LW,y:-30-pat.whirl[1]*LH,r:40});}
   function hurt(){P.lives--;b.inv=1.5;SFX.hit();shake();flash('bad');if(P.lives<=0)failPhase('O barco não resistiu à correnteza.');}
   P.update=dt=>{
@@ -592,7 +592,7 @@ function Phase2(){
     if(dy>0&&Math.random()<dt*25)wake.push({x:b.x+rnd(-4,4),y:b.y+16,t:0});
     for(const k of rocks)if(b.inv<=0&&dist(b.x,b.y,k.x,k.y)<b.r+k.r*.85){hurt();if(state!=='play')return;}
     for(const r of rows){if(!r.res&&r.y>=b.y){r.res=true;const lane=clamp(Math.floor(b.x/(LW/3)),0,2);r.pick=lane;
-      if(lane===r.correct){SFX.ok();flash('ok');floatText(b.x,b.y-36,'Portão certo!',COL.ok);elogioRaro();speed*=1.1;}
+      if(lane===r.correct){SFX.ok();flash('ok');floatText(b.x,b.y-36,'Portão certo!',COL.ok);elogioRaro();speed=Math.min(speed*1.04,LH/7.5);}
       else{P.errors++;P.lives--;SFX.bad();flash('bad');shake();toast(`<b>A resposta certa era ${r.vals[r.correct]}.</b> ${r.q.expl}`,3600);freeze=2.6;if(P.lives<=0){failPhase('O barco não resistiu à correnteza.');return;}}
       if(spawned<total)nextIn=.6;else endIn=1.4;}}
     if(nextIn!=null&&freeze<=0){nextIn-=dt;if(nextIn<=0){nextIn=null;spawnRow();}}
