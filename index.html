@@ -413,7 +413,7 @@ const PMETA=[
   {n:'Templo das Três Guildas',c:'Inclusão-exclusão com 3 conjuntos'},
   {n:'A Névoa do Caos',c:'Desafio final com banco de 16 questões'}
 ];
-const ELOGIOS=['Isso mesmo, meninos!','Boa, meninos! Conta certinha.','É isso aí, meninos!','Mandaram bem, meninos!','Perfeito, meninos!'];
+const ELOGIOS=['Isso mesmo, meninos!','Boa, meninos! Conta certinha.','É isso aí, meninos!','Mandaram bem, meninos!','Perfeito, meninos!','Boa, 06!'];
 let lastElogio=-99;
 // De vez em quando (35% de chance, no máximo uma vez a cada 12 segundos) o Mestre comemora um acerto
 function elogioRaro(extra){if(T-lastElogio<12||Math.random()>.35)return;lastElogio=T;elogio(extra);}
@@ -577,7 +577,7 @@ function Phase2(){
     'O barco anda sozinho. Use ← → (ou A e D), ou toque no lado para onde quer ir. Rochas e portões errados custam um coração, e os redemoinhos puxam o barco para o lado. São 7 portões, e a correnteza acelera a cada um. Vamos lá, meninos!'
   ];
   P.outro=[
-    'Muito bem, meninos! Vocês atravessaram o corredor! Agora a fórmula da inclusão-exclusão já está na ponta da língua.',
+    'Boa, 06! Vocês atravessaram o corredor! Agora a fórmula da inclusão-exclusão já está na ponta da língua.',
     'Mas a próxima região está coberta de neblina. Lá você não vai poder confiar nos olhos, só no que sabe sobre as regiões do diagrama.'
   ];
   let b,rows=[],rocks=[],whirls=[],spawned=0,speed,freeze=0,cur=null,nextIn=null,endIn=null,types;const total=7;
@@ -692,7 +692,7 @@ function Phase4(){
     `O reino tem <b>${D.tot} moradores</b>. As outras sete informações do censo estão em pergaminhos espalhados pelo mapa, cada um dentro da região a que se refere.`,
     'Com três conjuntos, a inclusão-exclusão ganha mais passos: <span class="formula">n(F ∪ N ∪ A) = n(F) + n(N) + n(A) − n(F ∩ N) − n(F ∩ A) − n(N ∩ A) + n(F ∩ N ∩ A)</span>',
     'Por que somar o centro no final? Quem está nas três guildas é somado 3 vezes nos conjuntos e descontado 3 vezes nas interseções. Sem a última parcela, ele ficaria de fora da conta.',
-    'Cuidado com as serpentes marinhas que patrulham os territórios: encostar em uma custa um coração. Junte os 7 pergaminhos e responda às minhas perguntas. Foco, meninos!'
+    'Cuidado com as serpentes marinhas que patrulham os territórios: encostar em uma custa um coração. Junte os 7 pergaminhos e responda às minhas perguntas. Foco, 06!'
   ];
   P.outro=[
     'O censo está completo, meninos! Ferreiros, Navegantes e Alquimistas, todos contados e ninguém repetido.',
