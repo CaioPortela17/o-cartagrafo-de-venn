@@ -81,13 +81,7 @@ HTML5 Canvas, JavaScript puro e Web Audio API, tudo em um único arquivo, sem bi
 | ![Fase 2](screenshots/fase2-portoes.png) | ![Fase 3](screenshots/fase3-neblina.png) |
 | ![Fase 4](screenshots/fase4-templo.png) | ![Fase 5](screenshots/fase5-nevoa.png) |
 
-### Equipe
 
-- Caio Portela
-- David Pesquera
-- Ian Vieira
-- Diego Gibaja
-- Arthur Moura
 
 ---
 
@@ -127,7 +121,3 @@ No installation needed. Open `index.html` in any browser, or use the GitHub Page
 ### Tech
 
 HTML5 Canvas, vanilla JavaScript and the Web Audio API, all in a single file with no libraries.
-
-### Team
-
-Caio Portela, David Pesquera, Ian Vieira, Diego Gibaja and Arthur Moura.
